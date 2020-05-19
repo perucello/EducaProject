@@ -1,11 +1,22 @@
 package com.educaciencia.demo.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 //Banco de Dados User
+
+//para especificação
+@Entity 
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	//Para informar que é a chave primaria no Banco
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
