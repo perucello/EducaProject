@@ -6,25 +6,25 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.educaciencia.demo.entities.User;
-import com.educaciencia.demo.repositories.UserRepository;
+import com.educaciencia.demo.entities.Order;
+import com.educaciencia.demo.repositories.OrderRepository;
 
 //select
 @Service
-public class UserService {
+public class OrderService {
 	
 	
 	@Autowired
-	private UserRepository repository;
+	private OrderRepository repository;
 	
 	//metodo - select all
-	public List<User> findAll(){
+	public List<Order> findAll(){
 		return repository.findAll();
 	}	
 	
 	//Metodo - select por ID
-	public User findById(Long id) {
-		Optional<User> obj =  repository.findById(id);
+	public Order findById(Long id) {
+		Optional<Order> obj =  repository.findById(id);
 		return obj.get();
 		
 		
