@@ -8,9 +8,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.educaciencia.demo.entities.Category;
 import com.educaciencia.demo.entities.Order;
 import com.educaciencia.demo.entities.User;
 import com.educaciencia.demo.entities.enums.OrderStatus;
+import com.educaciencia.demo.repositories.CategoryRepository;
 import com.educaciencia.demo.repositories.OrderRepository;
 import com.educaciencia.demo.repositories.UserRepository;
 
@@ -24,11 +26,21 @@ public class TesteConfig implements CommandLineRunner {
 	@Autowired
 	private OrderRepository orderRepository;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		//Executar quando o Programa for iniciado - implementando classe CommandLine
 		//instanciando Objetos e Salvando no Banco de Dados
+
+//Salvar category - categorias
+		Category cat1 = new Category(null, "Electronics");
+		Category cat2 = new Category(null, "Books");
+		Category cat3 = new Category(null, "Computers");
 		
+		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+
 		
 //Salvar User - usuario
 		User u1 = new User(null, "TesteNome1", "teste1@gmail.com", "999999999", "1234");

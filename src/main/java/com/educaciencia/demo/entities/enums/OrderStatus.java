@@ -29,5 +29,4 @@ public enum OrderStatus {
 		}
 		throw new IllegalArgumentException("Código Invalido - OrderStatus - code");
 	}
-
 }
