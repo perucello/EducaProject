@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.educaciencia.demo.entities.Category;
 import com.educaciencia.demo.entities.Order;
 import com.educaciencia.demo.entities.OrderItem;
+import com.educaciencia.demo.entities.Payment;
 import com.educaciencia.demo.entities.Product;
 import com.educaciencia.demo.entities.User;
 import com.educaciencia.demo.entities.enums.OrderStatus;
@@ -96,7 +97,11 @@ public class TesteConfig implements CommandLineRunner {
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 				
-				
+		Payment pay1 = new Payment(null, Instant.parse("2020-05-18T20:53:07Z"), o1);
+		//para salvar 1-1 nao chama objeto - usa memoria
+		o1.setPayment(pay1);
+		//salva novamente o pedido - agora com pagamento
+		orderRepository.save(o1);
 					
 		
 		
