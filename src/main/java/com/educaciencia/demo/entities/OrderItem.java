@@ -33,11 +33,10 @@ public class OrderItem implements Serializable {
 		this.quantity = quantity;
 		this.price = price;
 	}
-	
-	
+		
 	//informando pedido e metodo informa pedido
-	@JsonIgnore //aninha os pedidos no Postman
-	public Order getOrder() {
+	@JsonIgnore
+		public Order getOrder() {
 		return id.getOrder();
 	}
 	
@@ -47,7 +46,8 @@ public class OrderItem implements Serializable {
 	}
 	
 	
-	//informando produtoo e metodo informa produto	
+	//informando produto e metodo informa produto	
+	//@JsonIgnore
 	public Product getProduct() {
 		return id.getProduct();
 	}
@@ -99,9 +99,5 @@ public class OrderItem implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
