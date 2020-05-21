@@ -76,7 +76,8 @@ public class TesteConfig implements CommandLineRunner {
 //Salvar User - usuario
 		User u1 = new User(null, "TesteNome1", "teste1@gmail.com", "999999999", "1234");
 		User u2 = new User(null, "TesteNome2", "teste2@gmail.com", "888888888", "1234");	
-
+		User u3 = new User(null, "TesteNome3", "teste3@gmail.com", "999999999", "1234");
+		User u4 = new User(null, "TesteNome4", "teste4@gmail.com", "888888888", "1234");
 		
 //Salvar Order - pedido
 		Order o1 = new Order(null, Instant.parse("2020-05-18T19:53:07Z"),OrderStatus.PAID, u1);
