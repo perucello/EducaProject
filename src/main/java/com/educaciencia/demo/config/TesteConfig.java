@@ -50,15 +50,19 @@ public class TesteConfig implements CommandLineRunner {
 		Category cat2 = new Category(null, "Books");
 		Category cat3 = new Category(null, "Computers");
 		
+		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+		
+		
 		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
 		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
 		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 		
-		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+		//categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 
+		
 				
 		//informando qual categoria é de qual produto e Associando os Objetos Categoria/Produto
 		p1.getCategories().add(cat2);
@@ -78,17 +82,18 @@ public class TesteConfig implements CommandLineRunner {
 		User u2 = new User(null, "TesteNome2", "teste2@gmail.com", "888888888", "1234");	
 		User u3 = new User(null, "TesteNome3", "teste3@gmail.com", "999999999", "1234");
 		User u4 = new User(null, "TesteNome4", "teste4@gmail.com", "888888888", "1234");
+		userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));
+		
 		
 //Salvar Order - pedido
 		Order o1 = new Order(null, Instant.parse("2020-05-18T19:53:07Z"),OrderStatus.PAID, u1);
 		Order o2 = new Order(null, Instant.parse("2020-05-19T03:42:10Z"), OrderStatus.WAITTING_PAYMENT, u2);
 		Order o3 = new Order(null, Instant.parse("2020-05-19T15:21:22Z"), OrderStatus.WAITTING_PAYMENT, u1);
 		
-	
-		
-//Para salvar no BD
-		userRepository.saveAll(Arrays.asList(u1, u2));	
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+//Para salvar no BD
+		//userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));	
+		//orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 
 //salvar ordem item
 		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
