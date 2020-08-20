@@ -21,7 +21,7 @@ public class CategoryService {
 	public List<Category> findAll(){
 		return repository.findAll();
 	}	
-	
+	      //ts
 	//Metodo - select por ID
 	public Category findById(Long id) {
 		Optional<Category> obj =  repository.findById(id);
