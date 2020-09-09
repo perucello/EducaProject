@@ -23,7 +23,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.educa.project.controllers")).build()
+				.apis(RequestHandlerSelectors.basePackage("com.educaciencia.demo.resources")).build()
 				.apiInfo(metaData()).protocols(protocols()).host("localhost:8080");
 	}
 
