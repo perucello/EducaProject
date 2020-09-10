@@ -26,7 +26,7 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 	
-	//@Transient //assim jpa evita esta parte
+	//@Transient //assim jpa evita esta parte - 1
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categories") //nome da coleção Category.java
 	private Set<Product> products = new HashSet<Product>();
